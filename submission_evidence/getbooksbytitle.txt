@@ -1,0 +1,11 @@
+curl -sS --max-time 15 http://localhost:8800/title/Things%20Fall%20Apart -w '
+HTTP_STATUS:%{http_code}
+'
+{
+  "1": {
+    "author": "Chinua Achebe",
+    "title": "Things Fall Apart",
+    "reviews": {}
+  }
+}
+HTTP_STATUS:200

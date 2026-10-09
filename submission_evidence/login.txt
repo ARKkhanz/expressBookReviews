@@ -1,0 +1,8 @@
+curl -sS --max-time 15 -X POST -H 'Content-Type: application/json' -d '{"username": "reviewer_alice", "password": "DemoAlice123!"}' -c /tmp/book-review-tests-h4dn36zs/alice.cookies http://localhost:8800/customer/login -w '
+HTTP_STATUS:%{http_code}
+'
+{
+  "message": "Successfully logged in.",
+  "username": "reviewer_alice"
+}
+HTTP_STATUS:200

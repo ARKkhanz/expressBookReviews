@@ -1,0 +1,11 @@
+curl -sS --max-time 15 -X DELETE -b /tmp/book-review-tests-h4dn36zs/alice.cookies http://localhost:8800/customer/auth/review/1 -w '
+HTTP_STATUS:%{http_code}
+'
+{
+  "message": "Your review was successfully deleted.",
+  "isbn": "1",
+  "reviews": {
+    "reviewer_bob": "A thoughtful story."
+  }
+}
+HTTP_STATUS:200

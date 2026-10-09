@@ -1,0 +1,7 @@
+curl -sS --max-time 15 http://localhost:8800/review/1 -w '
+HTTP_STATUS:%{http_code}
+'
+{
+  "message": "No reviews found for this book."
+}
+HTTP_STATUS:200

@@ -1,0 +1,7 @@
+PASS: All nine submission API tasks returned expected results.
+PASS: Review modification changed only the logged-in user's review.
+PASS: Deletion preserved the other user's review.
+PASS: Unauthenticated review changes were rejected.
+PASS: Duplicate registration and invalid input were rejected.
+PASS: Invalid login and unknown ISBN were rejected.
+PASS: Four simultaneous public requests completed successfully.

@@ -1,0 +1,18 @@
+# Book Review submission guide
+
+Tasks 1–9: paste the COMPLETE contents of the matching evidence file.
+Task 10: paste the URL from general-js-url.txt.
+Task 11: paste the COMPLETE contents of githubrepo.txt.
+
+Task 1: getallbooks.txt
+Task 2: getbooksbyISBN.txt
+Task 3: getbooksbyauthor.txt
+Task 4: getbooksbytitle.txt
+Task 5: getbookreview.txt
+Task 6: register.txt
+Task 7: login.txt
+Task 8: reviewadded.txt
+Task 9: deletereview.txt
+Task 11: githubrepo.txt
+
+Task 10: https://github.com/ARKkhanz/expressBookReviews/blob/main/final_project/router/general.js
