@@ -1,18 +1,16 @@
-# Book Review submission guide
+Final assessment question order
 
-Tasks 1–9: paste the COMPLETE contents of the matching evidence file.
-Task 10: paste the URL from general-js-url.txt.
-Task 11: paste the COMPLETE contents of githubrepo.txt.
+Question 1: githubrepo.txt
+Question 2: getallbooks.txt
+Question 3: getbooksbyISBN.txt
+Question 4: getbooksbyauthor.txt
+Question 5: getbooksbytitle.txt
+Question 6: getbookreview.txt
+Question 7: register.txt
+Question 8: login.txt
+Question 9: reviewadded.txt
+Question 10: deletereview.txt
+Question 11: general-js-url.txt
 
-Task 1: getallbooks.txt
-Task 2: getbooksbyISBN.txt
-Task 3: getbooksbyauthor.txt
-Task 4: getbooksbytitle.txt
-Task 5: getbookreview.txt
-Task 6: register.txt
-Task 7: login.txt
-Task 8: reviewadded.txt
-Task 9: deletereview.txt
-Task 11: githubrepo.txt
-
-Task 10: https://github.com/ARKkhanz/expressBookReviews/blob/main/final_project/router/general.js
+Questions 1–10: paste the complete command and output.
+Question 11: paste the public general.js URL.

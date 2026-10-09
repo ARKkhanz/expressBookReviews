@@ -1,0 +1,6 @@
+Book Review Application
+Status: Passed
+Final score: 28/30 (93%)
+Passing grade: 70%
+Code commit: d37190b77d0f75c3afa53af64a08774808c13a4d
+Includes revised login and review evidence.
