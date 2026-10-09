@@ -1,11 +1,10 @@
-curl -sS --max-time 15 -X PUT -b /tmp/book-review-tests-h4dn36zs/alice.cookies 'http://localhost:8800/customer/auth/review/1?review=An%20excellent%20book.' -w '
+curl -sS --max-time 15 -X PUT -b /tmp/tmpcqts51hq/newuser.cookies 'http://localhost:8800/customer/auth/review/1?review=This%20is%20a%20great%20book' -w '
 HTTP_STATUS:%{http_code}
 '
 {
-  "message": "Review successfully added.",
-  "isbn": "1",
+  "message": "Review added successfully",
   "reviews": {
-    "reviewer_alice": "An excellent book."
+    "newuser": "This is a great book"
   }
 }
 HTTP_STATUS:200

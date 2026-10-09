@@ -73,8 +73,7 @@ regd_users.put('/auth/review/:isbn', (req, res) => {
   book.reviews[username] = review.trim();
 
   return res.json({
-    message: existed ? 'Review successfully modified.' : 'Review successfully added.',
-    isbn: req.params.isbn,
+    message: existed ? 'Review updated successfully' : 'Review added successfully',
     reviews: book.reviews,
   });
 });
@@ -90,7 +89,7 @@ regd_users.delete('/auth/review/:isbn', (req, res) => {
 
   delete book.reviews[username];
   return res.json({
-    message: 'Your review was successfully deleted.',
+    message: `Review for ISBN ${req.params.isbn} deleted.`,
     isbn: req.params.isbn,
     reviews: book.reviews,
   });

@@ -5,34 +5,57 @@ const { registerUser } = require('./auth_users.js');
 const { PORT } = require('../config.js');
 
 const public_users = express.Router();
-const client = axios.create({
-  baseURL: `http://127.0.0.1:${PORT}/data`,
-  timeout: 5000,
-  proxy: false,
-});
 
-// Task 10: Retrieve all books using async/await with Axios.
+
+// Retrieve the original book data asynchronously through Axios.
+// The data endpoint is read-only and cannot recurse into these public routes.
+const dataURL = `http://127.0.0.1:${PORT}/data/books`;
+
+// Task 10: Async/await retrieves the complete book catalogue.
 async function getAllBooks() {
-  const response = await client.get('/books');
+  const response = await axios.get(dataURL, { proxy: false, timeout: 5000 });
   return response.data;
 }
 
-// Task 11: Retrieve a book by ISBN using a Promise callback with Axios.
+// Task 11: A Promise callback selects the requested ISBN.
 function getBooksByISBN(isbn) {
-  return client.get(`/isbn/${encodeURIComponent(isbn)}`)
-    .then(response => response.data);
+  return axios.get(dataURL, { proxy: false, timeout: 5000 })
+    .then(response => {
+      const book = response.data[isbn];
+      if (!book) {
+        throw { response: { status: 404, data: { message: 'Book not found.' } } };
+      }
+      return book;
+    });
 }
 
-// Task 12: Retrieve books by author using async/await with Axios.
+// Task 12: Async/await retrieves and filters books by author.
+// Keep ISBN keys so multiple books by the same author are returned.
 async function getBooksByAuthor(author) {
-  const response = await client.get(`/author/${encodeURIComponent(author)}`);
-  return response.data;
+  const response = await axios.get(dataURL, { proxy: false, timeout: 5000 });
+  const matches = Object.fromEntries(
+    Object.entries(response.data).filter(([, book]) =>
+      book.author.toLowerCase() === author.toLowerCase()
+    )
+  );
+  if (!Object.keys(matches).length) {
+    throw { response: { status: 404, data: { message: 'No books found for this author.' } } };
+  }
+  return matches;
 }
 
-// Task 13: Retrieve books by title using async/await with Axios.
+// Task 13: Async/await retrieves and filters books by title.
 async function getBooksByTitle(title) {
-  const response = await client.get(`/title/${encodeURIComponent(title)}`);
-  return response.data;
+  const response = await axios.get(dataURL, { proxy: false, timeout: 5000 });
+  const matches = Object.fromEntries(
+    Object.entries(response.data).filter(([, book]) =>
+      book.title.toLowerCase() === title.toLowerCase()
+    )
+  );
+  if (!Object.keys(matches).length) {
+    throw { response: { status: 404, data: { message: 'No books found for this title.' } } };
+  }
+  return matches;
 }
 
 function handleRequestError(error, res, next) {

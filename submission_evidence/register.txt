@@ -1,8 +1,8 @@
-curl -sS --max-time 15 -X POST -H 'Content-Type: application/json' -d '{"username": "reviewer_alice", "password": "DemoAlice123!"}' http://localhost:8800/register -w '
+curl -sS --max-time 15 -X POST -H 'Content-Type: application/json' -d '{"username":"newuser","password":"DemoNewUser123!"}' http://localhost:8800/register -w '
 HTTP_STATUS:%{http_code}
 '
 {
   "message": "User successfully registered.",
-  "username": "reviewer_alice"
+  "username": "newuser"
 }
 HTTP_STATUS:201

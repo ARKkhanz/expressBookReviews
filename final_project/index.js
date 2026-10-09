@@ -11,7 +11,7 @@ app.disable('x-powered-by');
 app.set('json spaces', 2);
 app.use(express.json({ limit: '16kb' }));
 
-app.use('/customer', session({
+app.use(['/customer', '/login'], session({
   secret: SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
@@ -74,6 +74,7 @@ app.get('/data/title/:title', (req, res) => {
     : res.status(404).json({ message: 'No books found for this title.' });
 });
 
+app.post('/login', customer_routes);
 app.use('/customer', customer_routes);
 app.use('/', genl_routes);
 
